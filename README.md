@@ -42,9 +42,7 @@ For example,
 ...         ('PRINT_ANSWER', None),
 ...     ]
 ...     ,
-...     'values': [
-...         7, 5
-...     ]
+...     'values': [7, 5]
 ... }
 >>>
 >>> i.run(evals)
