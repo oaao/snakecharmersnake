@@ -51,20 +51,15 @@ class Interpreter:
         """
 
         instructions = code_payload['instructions']
-        vals         = code_payload['values']
 
         for step in instructions:
 
             instr, arg = step
 
-            # wow fantastic job
-            if   instr == 'LOAD_VALUE':
-                self.LOAD_VALUE(vals[arg])
-            elif instr == 'STORE_NAME':
-                self.STORE_NAME(arg)
-            elif instr == 'LOAD_NAME':
-                self.LOAD_NAME(arg)
-            elif instr == 'ADD_TWO_VALUES':
-                self.ADD_TWO_VALUES()
-            elif instr == 'PRINT_ANSWER':
-                self.PRINT_ANSWER()
+            eval_arg      = self.parse_arg(instr, arg, code_payload)
+            bytecode_call = getattr(self, instr)
+
+            if not arg:
+                bytecode_call()
+            else:
+                bytecode_call(arg)
