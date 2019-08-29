@@ -31,7 +31,7 @@ class Interpreter:
         """ Determine what the argument for a given instruction resolves to """
 
         vals  = ['LOAD_VALUE']
-        names = ['LOAD_NAME'. 'STORE_NAME']
+        names = ['LOAD_NAME', 'STORE_NAME']
 
         if   instr in vals:
             eval_arg = code_payload['vals'][arg]
